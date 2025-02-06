@@ -15,10 +15,12 @@ class Product extends Model
         'available',
         'description',
         'type',
+        'sell_by_date'
     ];
 
     protected $casts = [
         'available' => 'boolean',
         'price' => 'float',
+        'sell_by_date' => 'datetime'
     ];
 }
