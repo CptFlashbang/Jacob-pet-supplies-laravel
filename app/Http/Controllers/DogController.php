@@ -63,4 +63,10 @@ class DogController extends Controller
         $dog->delete();
         return redirect()->route('dogs.index')->with('success', 'Dog deleted successfully.');
     }
+
+    public function showAdoptionPage()
+    {
+        $dogs = Dog::all(); // or paginate if you prefer
+        return view('adoption', compact('dogs'));
+    }
 }
