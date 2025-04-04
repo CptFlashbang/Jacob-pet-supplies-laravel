@@ -23,4 +23,9 @@ class Product extends Model
         'price' => 'float',
         'sell_by_date' => 'datetime'
     ];
+
+    public function isDiscounted(): bool
+    {
+        return $this->is_end_of_line || ($this->sell_by_date && now()->diffInDays($this->sell_by_date, false) <= 7);
+    }
 }
