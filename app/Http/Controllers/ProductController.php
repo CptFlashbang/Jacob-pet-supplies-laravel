@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::all()->groupBy('type');
         return view('products.index', compact('products'));
     }
 
