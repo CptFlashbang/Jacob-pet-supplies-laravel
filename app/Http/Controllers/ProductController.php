@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::all()->groupBy('type');
         return view('products.index', compact('products'));
     }
 
@@ -62,5 +62,14 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    }
+
+    public function home()
+    {
+        $randomProducts = Product::inRandomOrder()->limit(3)->get();
+
+        $seasonalMessage = "Spring Specials: Fresh treats and new toys for your pets!";
+
+        return view('home', compact('randomProducts', 'seasonalMessage'));
     }
 }
