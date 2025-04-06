@@ -38,6 +38,58 @@
                     </svg>
                 </div>
 
+                <div class="text-center p-6 bg-green-100 rounded-xl shadow-md">
+                    <h1 class="text-3xl font-bold mb-2">Welcome to Jacob Pet Supplies</h1>
+                    <p class="text-lg text-gray-700">{{ $seasonalMessage }}</p>
+                </div>
+
+                <div class="mt-10">
+                    <h2 class="text-2xl font-semibold text-center mb-6">Featured Products</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        @foreach ($randomProducts as $product)
+                            <div class="bg-white border p-4 rounded shadow text-center">
+                                <h3 class="text-lg font-bold">{{ $product->name }}</h3>
+                                <p class="font-semibold mt-2">£{{ number_format($product->price, 2) }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <section class="hero p-8 text-left flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex-col">
+                        <h1 class="text-3xl font-bold mb-4">
+                            Caring for Pets, Supporting Rescues
+                        </h1>
+                        <div class="flex">
+                            <div class="flex-col justify-center">
+                                <p class="text-lg mb-6 mr-6">
+                                    At Jacob's Pet Supplies, we’re dedicated to the well-being of pets
+                                    and the community. Partnering with the Sherlock rescue centre, we
+                                    work to find loving homes for dogs in need.
+                                </p>
+
+                                <p class="text-lg mb-6 mr-6">
+                                    By promoting adoption events and supporting rescue efforts, we
+                                    inspire customers to join this cause. Whether seeking supplies or
+                                    helping rescue dogs, Jacob’s Pet Supplies is a resource and
+                                    advocate. We build relationships and envision a world where every
+                                    pet finds a loving home. Stand with us to ensure every tail and
+                                    purring companion gets the love they deserve.
+                                </p>
+
+                                <div class="flex justify-start gap-4">
+                                    <x-primary-button href="/products">
+                                        Explore products
+                                    </x-primary-button>
+                                    <x-secondary-button href="/adoption">
+                                        Learn about adoption
+                                    </x-secondary-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                         <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
