@@ -70,6 +70,6 @@ class ProductController extends Controller
 
         $seasonalMessage = "Spring Specials: Fresh treats and new toys for your pets!";
 
-        return view('home', compact('randomProducts', 'seasonalMessage'));
+        return view('welcome', compact('randomProducts', 'seasonalMessage'));
     }
 }
