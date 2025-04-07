@@ -171,7 +171,7 @@ class DogFactory extends Factory
             'name' => $name,
             'sex' => $sex,
             'breed' => $breed,
-            'image' => 'https://via.placeholder.com/150', // Placeholder for dog image
+            'img_url' => 'https://via.placeholder.com/150', // Placeholder for dog image
         ];
     }
 }
