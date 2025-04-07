@@ -162,7 +162,9 @@ class ProductSeeder extends Seeder
             ],
         ];
 
+        
         foreach ($products as $product) {
+            $product['img_url'] = $product['img_url'] ?? 'https://via.placeholder.com/150';
             Product::create($product);
         }
     }
