@@ -7,10 +7,19 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all()->groupBy('type');
-        return view('products.index', compact('products'));
+        $filter = $request->query('filter');
+    
+        // Get distinct product types to use as filter options
+        $categories = Product::select('category')->distinct()->pluck('category');
+    
+        // Get products, optionally filtered
+        $products = Product::when($filter, function ($query, $filter) {
+            return $query->where('category', $filter);
+        })->get();
+    
+        return view('products.index', compact('products', 'categories'));
     }
 
     public function create()
