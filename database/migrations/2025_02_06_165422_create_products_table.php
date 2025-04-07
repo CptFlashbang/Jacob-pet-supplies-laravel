@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->boolean('available');
             $table->text('description')->nullable();
+            $table->text('img_url');
             $table->string('category');
             $table->date('sell_by_date');
             $table->timestamps();
