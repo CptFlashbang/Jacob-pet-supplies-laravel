@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [ProductController::class, 'home'])->name('home');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/adoption', [DogController::class, 'showAdoptionPage'])->name('adoption');
+Route::get('/adoption', [DogController::class, 'index'])->name('adoption');
 
 
 
