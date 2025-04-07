@@ -17,7 +17,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->boolean('available');
             $table->text('description');
-            $table->string('type');
+            $table->string('category');
             $table->date('sell_by_date');
             $table->timestamps();
         });

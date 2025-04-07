@@ -16,14 +16,14 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        $types = ['Toy', 'Grooming', 'Treat'];
+        $catagories = ['Toy', 'Grooming', 'Treat'];
 
         return [
             'name' => $this->faker->words(3, true), // Generates a random product name
             'price' => $this->faker->randomFloat(2, 0.5, 50), // Price between 0.50 and 50.00
             'available' => $this->faker->boolean(80), // 80% chance of being true (available)
             'description' => $this->faker->sentence(12), // Generates a random description
-            'type' => $this->faker->randomElement($types), // Randomly selects from the predefined types
+            'category' => $this->faker->randomElement($catagories), // Randomly selects from the predefined categorys
             'sell_by_date' => $this->faker->dateTimeBetween('now', '+1 year') // Random date between now and 1 year from now
         ];
     }
