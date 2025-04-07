@@ -13,6 +13,6 @@ class Dog extends Model
         'name',
         'sex',
         'breed',
-        'image',
+        'img_url',
     ];
 }

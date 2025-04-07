@@ -14,6 +14,7 @@ class Product extends Model
         'price',
         'available',
         'description',
+        'img_url',
         'category',
         'sell_by_date'
     ];
