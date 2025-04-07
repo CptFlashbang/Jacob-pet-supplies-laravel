@@ -96,6 +96,68 @@ class ProductSeeder extends Seeder
                 'category' => 'Grooming',
                 'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
             ],
+            [
+                'name' => 'Duck strips',
+                'price' => 0.9,
+                'available' => true,
+                'description' => '100% duck',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Lamb strips',
+                'price' => 0.9,
+                'available' => true,
+                'description' => '100% lamb',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Antler Natural Dog And Puppy Chew',
+                'price' => 8.00,
+                'available' => false,
+                'description' => 'We would never be without an Antler, no smell, no mess perfect chew for Dogs!',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Chicken liver with parsnip & honey',
+                'price' => 2.99,
+                'available' => true,
+                'description' => 'Small bites with a big flavour that dogs go wild for. These irresistible training Treat help dogs master their skills through positive reinforcement. Once they get a sniff of these, they’ll be sitting before you even mention the word. We only use free-range chicken that have access to the great outdoors, grubs and wildflowers. We add honey and parsnip to help them focus for longer. Pocket-sized and compostable packaging approved, ready to grab-and-go.',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Peanut with coconut & turmeric',
+                'price' => 2.99,
+                'available' => true,
+                'description' => 'Crunchy peanuts, super turmeric and naturally sweet coconut for when you want to give your dog something special, just…because Results? Lick-lipping reviews. Each individual biscuit is soft-baked in an oven powered by renewables and packed with plant-based protein and tail-waggingly tasty ingredients, with peanuts providing a great source of energy and focus. Pocket-sized and compostable packaging approved, ready to grab-and-go.',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Beef cartilage',
+                'price' => 1.20,
+                'available' => true,
+                'description' => '100% beef',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Black pudding stick',
+                'price' => 1.10,
+                'available' => true,
+                'description' => 'Our Stick range is our most popular and there\'s a flavour to suit every Dogs taste buds! You can feed these meaty sticks whole or break them up into bites for multiple rewards. As these Meat Sticks are high-value rewards they make great training Treat! Chop them up before class and you and your Dog will be best in show!',
+                'category' => 'Treat',                
+                'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
+            ],
+            [
+                'name' => 'Braided lamb skin',
+                'price' => 1.60,
+                'available' => true,
+                'description' => 'Braided lamb chew',
+                'category' => 'Treat',                
                 'sell_by_date' => Carbon::now()->addDays(rand(30, 365))
             ],
         ];
