@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [ProductController::class, 'home'])->name('home');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/RICHARD', [ProductController::class, 'index'])->name('products.index');
+// Route::get('/RICHARD', [ProductController::class, 'index'])->name('products.index');
 Route::get('/adoption', [DogController::class, 'index'])->name('adoption');
 
 
@@ -29,6 +29,11 @@ Route::get('/adoption', [DogController::class, 'index'])->name('adoption');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/voucher/print', function () {
+    return view('voucher');
+})->middleware(['auth'])->name('voucher.print');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Http;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Dog>
@@ -160,18 +162,41 @@ class DogFactory extends Factory
         $subBreeds = $breedsCollection[$breedKey];
 
         // Select sub-breed if available
-        $breed = !empty($subBreeds) ? $breedKey . ' - ' . collect($subBreeds)->random() : $breedKey;
+        // $breed = !empty($subBreeds) ? $breedKey . ' - ' . collect($subBreeds)->random() : $breedKey;
+
+        if (!empty($subBreeds)) {
+            $subBreed = collect($subBreeds)->random();
+            $breed = "$breedKey - $subBreed";
+            $breedLowerCase = strtolower($breedKey);
+            $subBreedLowerCase = strtolower($subBreed);
+        } else {
+            $breed = $breedKey;
+            $breedLowerCase = strtolower($breedKey);
+            $subBreedLowerCase = null;
+        }
 
         $sex = $this->faker->randomElement(['male', 'female']);
         $name = $sex === 'male' ? $this->faker->randomElement($maleNames) : $this->faker->randomElement($femaleNames);
 
 
+        $url = $subBreedLowerCase
+        ? "https://dog.ceo/api/breed/{$breedLowerCase}/{$subBreedLowerCase}/images/random"
+        : "https://dog.ceo/api/breed/{$breedLowerCase}/images/random";
+
+        try {
+            $response = Http::get($url);
+            $imageUrl = $response->successful()
+                ? $response->json()['message']
+                : 'https://via.placeholder.com/150';
+        } catch (\Exception $e) {
+            $imageUrl = 'https://via.placeholder.com/150';
+        }
 
         return [
             'name' => $name,
             'sex' => $sex,
             'breed' => $breed,
-            'img_url' => 'https://via.placeholder.com/150', // Placeholder for dog image
+            'img_url' => $imageUrl
         ];
     }
 }

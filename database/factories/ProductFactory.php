@@ -24,7 +24,8 @@ class ProductFactory extends Factory
             'available' => $this->faker->boolean(80), // 80% chance of being true (available)
             'description' => $this->faker->sentence(12), // Generates a random description
             'category' => $this->faker->randomElement($catagories), // Randomly selects from the predefined categorys
-            'sell_by_date' => $this->faker->dateTimeBetween('now', '+1 year') // Random date between now and 1 year from now
+            'sell_by_date' => $this->faker->dateTimeBetween('now', '+1 year'), // Random date between now and 1 year from now
+            'img_url' => $this->faker->imageUrl(640, 480, 'animals', true, 'dogs'),
         ];
     }
 }
